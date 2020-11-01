@@ -1,0 +1,10 @@
+.row
+  .col-md-8.offset-md-2
+    %h2 Edit article
+    %hr/
+
+    = render 'form'
+
+    = link_to 'Show', @article
+    \|
+    = link_to 'Back', articles_path

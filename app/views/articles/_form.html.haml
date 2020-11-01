@@ -1,0 +1,15 @@
+= form_for @article do |f|
+  - if @article.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@article.errors.count, "error")} prohibited this article from being saved:"
+      %ul
+        - @article.errors.full_messages.each do |message|
+          %li= message
+
+  .form-group
+    = f.text_field :title, class: "form-control", placeholder: "Title"
+  .form-group
+    = f.hidden_field :body, id: :post_body, class: "form-control"
+    %trix-editor#post-body-editor{ input: "post_body", placeholder: "Article Body" }
+  .actions
+    = f.submit 'Save', class: "btn btn-success float-right"
