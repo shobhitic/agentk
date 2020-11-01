@@ -33,5 +33,5 @@ bin/webpack-dev-server # in tab 2
 
 This was created during live streams at my YouTube channel. Link to the videos :-
 
-* Part 1 - https://www.youtube.com/watch?v=JnEvCiDfbEI
+* Part 1 ([Last Commit](https://github.com/shobhitic/agentk/commit/0f66e5157543d40492db1210232c151f7a94d6bd)) - https://www.youtube.com/watch?v=JnEvCiDfbEI
 
