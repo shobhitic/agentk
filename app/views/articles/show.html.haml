@@ -4,8 +4,11 @@
 .row
   .col-md-8.offset-md-2
     %h1= @article.title
+    %hr/
     = simple_format @article.body
-
-    = link_to 'Edit', edit_article_path(@article)
-    \|
-    = link_to 'Back', articles_path
+    .float-right
+      = link_to 'Edit', edit_article_path(@article)
+      \|
+      = link_to 'Delete', @article, method: :delete, data: { confirm: 'Are you sure?' }
+      \|
+      = link_to 'Back', articles_path
