@@ -61,6 +61,12 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def permalink
+    slug = params[:slug]
+    @article = Article.find_by_slug slug
+    render :show
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
