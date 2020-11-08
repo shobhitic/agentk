@@ -1,0 +1,7 @@
+%h1= @article.title
+%hr/
+= simple_format @article.body
+%hr/
+%p
+  To read this in your browser, click on this link -
+  = link_to 'Permalink', permalink_url(slug: @article.slug)

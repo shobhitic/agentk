@@ -10,6 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_11_08_101350) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_articles_on_slug", unique: true
+  end
+
+  create_table "subscribers", force: :cascade do |t|
+    t.string "email"
+    t.string "verification_token"
+    t.boolean "verified", default: false
+    t.boolean "unsubscribed", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_subscribers_on_email"
+    t.index ["verification_token"], name: "index_subscribers_on_verification_token"
+  end
 
 end

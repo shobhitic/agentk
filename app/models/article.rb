@@ -9,6 +9,6 @@ class Article < ApplicationRecord
   end
 
   def schedule_to_send
-    ArticleMailer.with(article_id: self.id, email: 'shobhit@hey.com').new_article_email.deliver_later
+    ArticleMailer.with(article_id: self.id, email: 'example@mail.com').new_article_email.deliver_later
   end
 end
