@@ -29,6 +29,14 @@ class SubscribersController < ApplicationController
   end
 
   def unsubscribe
+    token = params[:token]
+    email = params[:email]
+    subscriber = Subscriber.find_by_unsubscription_token! token
+    if subscriber.email.downcase == email.downcase.strip
+      subscriber.update unsubscribed: true
+    else
+      render plain: "Couldn't unsubscribe your email."
+    end
   end
 
   private

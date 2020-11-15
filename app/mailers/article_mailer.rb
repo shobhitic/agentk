@@ -3,7 +3,8 @@ class ArticleMailer < ApplicationMailer
  
   def new_article_email
     @article = Article.find params[:article_id]
-    @email = params[:email]
+    @subscriber = Subscriber.find params[:subscriber_id]
+    @email = @subscriber.email
     mail(to: @email, subject: @article.title)
   end
 end

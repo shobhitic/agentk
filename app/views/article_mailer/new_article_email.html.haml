@@ -5,3 +5,4 @@
 %p
   To read this in your browser, click on this link -
   = link_to 'Permalink', permalink_url(slug: @article.slug)
+%p= link_to 'Unsubscribe', unsubscribe_subscribers_url(email: @subscriber.email, token: @subscriber.unsubscription_token), style: 'color: #555555; font-size: 0.75rem'

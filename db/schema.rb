@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_08_101350) do
+ActiveRecord::Schema.define(version: 2020_11_15_103110) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -28,7 +28,9 @@ ActiveRecord::Schema.define(version: 2020_11_08_101350) do
     t.boolean "unsubscribed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "unsubscription_token"
     t.index ["email"], name: "index_subscribers_on_email"
+    t.index ["unsubscription_token"], name: "index_subscribers_on_unsubscription_token", unique: true
     t.index ["verification_token"], name: "index_subscribers_on_verification_token"
   end
 
