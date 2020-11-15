@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   get 'p/:slug', to: 'articles#permalink', as: :permalink
 
-  root to: 'articles#index'
+  root to: 'subscribers#new'
 end

@@ -12,4 +12,18 @@
     %nav.navbar.navbar-dark.bg-primary
       %a.navbar-brand.mb-0.h1{ href: "/" } AgentK
     .container-fluid
+      - if notice
+        .row
+          .col-lg-8.offset-lg-2
+            .alert.alert-success.mt-3{ role: 'alert' }
+              = notice
+              %button.close{ type: "button", "data-dismiss" => "alert", "aria-label" => "Close" }
+                %span{ "aria-hidden" => "true"} &times;
+      - if alert
+        .row
+          .col-lg-8.offset-lg-2
+            .alert.alert-danger.mt-3{ role: 'alert' }
+              = alert
+              %button.close{ type: "button", "data-dismiss" => "alert", "aria-label" => "Close" }
+                %span{ "aria-hidden" => "true"} &times;
       = yield

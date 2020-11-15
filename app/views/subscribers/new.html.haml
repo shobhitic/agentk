@@ -1,2 +1,8 @@
-%h1 Subscribers#new
-%p Find me in app/views/subscribers/new.html.haml
+.row
+  .col-lg-4.offset-lg-4
+    = form_with model: @subscriber, class: "form-inline mt-5" do |f|
+      = f.label :email, "What's your email?", style: 'font-size: 2rem;', class: 'text-center w-100'
+      .input-group.mt-3.w-100
+        = f.text_field :email, class: "form-control"
+        .input-group-append
+          = f.submit 'Subscribe!', class: 'btn btn-success'

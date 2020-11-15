@@ -1,0 +1,7 @@
+%h1 Please verify your email address
+
+%p You have added your email address for subscription to our newsletter. To verify, please click the following link:
+
+%p= link_to verify_subscribers_url(email: params[:email], token: params[:token]), verify_subscribers_url(email: params[:email], token: params[:token])
+
+%p If you don't wish to subscribe, or you did not enter the email, you can safely ignore this mail and you won't be subscribed.
