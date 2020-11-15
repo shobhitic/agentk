@@ -9,6 +9,8 @@ class Article < ApplicationRecord
   end
 
   def schedule_to_send
-    ArticleMailer.with(article_id: self.id, email: 'example@mail.com').new_article_email.deliver_later
+    Subscriber.verified.find_each do |subscriber|
+      ArticleMailer.with(article_id: self.id, email: subscriber.email).new_article_email.deliver_later
+    end
   end
 end
