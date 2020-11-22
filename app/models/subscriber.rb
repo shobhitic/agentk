@@ -11,6 +11,14 @@ class Subscriber < ApplicationRecord
     self.email = self.email.strip 
   end
 
+  def verified?
+    self.verified
+  end
+
+  def subscribed?
+    !self.unsubscribed
+  end
+
   def generate_tokens
     begin
       self.verification_token = SecureRandom.hex 32

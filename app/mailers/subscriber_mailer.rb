@@ -6,8 +6,6 @@ class SubscriberMailer < ApplicationMailer
   #   en.subscriber_mailer.verify.subject
   #
   def verify
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    mail to: params[:email]
   end
 end

@@ -7,11 +7,32 @@ class SubscribersController < ApplicationController
   end
 
   def create
+    if subscriber = Subscriber.where("lower(email) = lower('#{subscriber_params[:email]}')").first
+
+      if subscriber.verified? && subscriber.subscribed?
+        redirect_to root_url, notice: "You're already on the list."
+
+        return
+      end
+
+      subscriber.generate_tokens
+      subscriber.unsubscribed = false
+      subscriber.verified = false
+      SubscriberMailer.with(email: subscriber.email, token: subscriber.verification_token).verify.deliver_later
+      if subscriber.save
+        redirect_to root_url, notice: "Please verify your email address by clicking on the link we've sent you in the mail."
+      else
+        redirect_to root_url, alert: "We were not able to save your email."
+      end
+
+      return
+    end
+
     @subscriber = Subscriber.new subscriber_params
 
     if @subscriber.save
       SubscriberMailer.with(email: @subscriber.email, token: @subscriber.verification_token).verify.deliver_later
-      redirect_to root_url, notice: "We've saved your email."
+      redirect_to root_url, notice: "Please verify your email address by clicking on the link we've sent you in the mail."
     else
       redirect_to root_url, alert: "We were not able to save your email."
     end
