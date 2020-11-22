@@ -1,0 +1,9 @@
+%nav.navbar.navbar-dark.bg-primary
+  %a.navbar-brand.mb-0.h1{ href: "/" } AgentK
+  %button.navbar-toggler{ type: "button", "data-toggle": "collapse", "data-target": "#navbarNav", "aria-controls": "navbarNav", "aria-expanded": "false", "aria-label": "Toggle navigation" }
+    %span.navbar-toggler-icon
+  .collapse.navbar-collapse#navbarNav
+    %ul.navbar-nav
+      - if user_signed_in?
+        %li.nav-item
+          = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link'

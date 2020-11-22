@@ -9,8 +9,7 @@
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %nav.navbar.navbar-dark.bg-primary
-      %a.navbar-brand.mb-0.h1{ href: "/" } AgentK
+    = render 'layouts/navbar'
     .container-fluid
       - if notice
         .row
