@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_22_100318) do
+ActiveRecord::Schema.define(version: 2020_11_29_095154) do
+
+  create_table "app_configs", force: :cascade do |t|
+    t.string "key"
+    t.text "value"
+    t.string "data_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["key"], name: "index_app_configs_on_key"
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string "title"

@@ -1,0 +1,17 @@
+.row
+  .col-lg-8.offset-lg-2
+    %h1
+      App Config
+
+    %table.table
+      %thead
+        %tr
+          %th Key
+          %th Value
+          %th Data Type
+      %tbody
+        - @app_configs.each do |config|
+          %tr
+            %td= config.key
+            %td= config.value
+            %td= config.data_type
