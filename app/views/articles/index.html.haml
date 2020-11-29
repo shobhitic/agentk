@@ -2,7 +2,7 @@
   .col-md-8.offset-md-2
     %h1
       Your Articles
-      = link_to 'New Article', new_article_path, class: "btn btn-sm btn-primary"
+      = link_to 'New Article', new_article_path, class: "btn btn-sm btn-primary" if user_signed_in?
     %hr/
 
     %ul.list-group
@@ -10,21 +10,3 @@
         %li.list-group-item
           = link_to article.title, article
           %span.float-right{ title: article.created_at.strftime("%b %d, %Y %H:%M:%S") }= article.created_at.strftime("%b %d")
-
-
-    / %table.table
-    /   %thead
-    /     %tr
-    /       %th Title
-    /       %th
-
-    /   %tbody
-    /     - @articles.each do |article|
-    /       %tr
-    /         %td= article.title
-    /         %td
-    /           = link_to 'Show', article
-    /           /= link_to 'Edit', edit_article_path(article)
-    /           / = link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }
-
-    %br
