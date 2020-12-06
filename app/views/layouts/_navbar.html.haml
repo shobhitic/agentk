@@ -6,6 +6,10 @@
     %ul.navbar-nav
       - if user_signed_in?
         %li.nav-item
+          = link_to 'Admin', admin_path, class: 'nav-link'
+        %li.nav-item
+          = link_to 'Articles', articles_path, class: 'nav-link'
+        %li.nav-item
           = link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link'
       - else
         %li.nav-item

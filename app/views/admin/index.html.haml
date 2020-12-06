@@ -9,9 +9,11 @@
           %th Key
           %th Value
           %th Data Type
+          %th
       %tbody
         - @app_configs.each do |config|
           %tr
             %td= config.key
             %td= config.value
             %td= config.data_type
+            %td= link_to 'Edit', edit_config_path(config)

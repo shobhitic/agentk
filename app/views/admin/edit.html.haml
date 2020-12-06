@@ -1,0 +1,8 @@
+.row
+  .col-md-8.offset-md-2
+    %h2 Editing - #{@app_config.key}
+    = form_with model: @app_config, url: edit_config_path(@app_config) do |f|
+      .form-group
+        = f.label :value
+        = f.text_field :value, class: 'form-control'
+      = f.submit 'Save', class: 'btn btn-success'
