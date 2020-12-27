@@ -29,6 +29,10 @@ bundle exec rails server # in tab 1
 bin/webpack-dev-server # in tab 2
 ```
 
+## Configuration
+
+Right now, the app only supports sending email through SMTP. Put your SMTP credentials in the `:smtp_settings` in encrypted credentials file.
+
 ## Backstory
 
 This was created during live streams at my YouTube channel. Link to the videos :-
