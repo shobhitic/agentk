@@ -3,6 +3,7 @@ class AdminController < ApplicationController
 
   def index
     @app_configs = AppConfig.all
+    @subscription_plans = SubscriptionPlan.all
   end
 
   def edit

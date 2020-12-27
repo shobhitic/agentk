@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  base_currency: MyString
+  monthly_rate: 9.99
+  annual_rate: 9.99
+
+two:
+  name: MyString
+  base_currency: MyString
+  monthly_rate: 9.99
+  annual_rate: 9.99

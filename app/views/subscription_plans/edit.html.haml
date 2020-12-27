@@ -1,0 +1,17 @@
+.row
+  .col-md-8.offset-md-2
+    %h2 Editing - #{@subscription_plan.name}
+    = form_with model: @subscription_plan do |f|
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+      .form-group
+        = f.label :base_currency
+        = f.select :base_currency, Money::Currency.all.map {|e| ["#{e.name} - #{e.iso_code}", e.iso_code] }, {}, class: 'form-control'
+      .form-group
+        = f.label :monthly_rate
+        = f.number_field :monthly_rate, step: :any, class: 'form-control'
+      .form-group
+        = f.label :annual_rate
+        = f.number_field :annual_rate, step: :any, class: 'form-control'
+      = f.submit 'Save', class: 'btn btn-success'

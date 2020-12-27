@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     get :verify, on: :collection
     get :unsubscribe, on: :collection
   end
+
+  resources :subscription_plans, only: [:create, :update, :edit]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get 'admin', to: 'admin#index'

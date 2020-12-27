@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_29_095154) do
+ActiveRecord::Schema.define(version: 2020_12_20_101436) do
 
   create_table "app_configs", force: :cascade do |t|
     t.string "key"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2020_11_29_095154) do
     t.index ["email"], name: "index_subscribers_on_email"
     t.index ["unsubscription_token"], name: "index_subscribers_on_unsubscription_token", unique: true
     t.index ["verification_token"], name: "index_subscribers_on_verification_token"
+  end
+
+  create_table "subscription_plans", force: :cascade do |t|
+    t.string "name"
+    t.string "base_currency"
+    t.decimal "monthly_rate"
+    t.decimal "annual_rate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

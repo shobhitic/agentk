@@ -1,6 +1,8 @@
 .row
   .col-lg-8.offset-lg-2
-    %h1
+    %h1 Admin
+    %hr/
+    %h3
       App Config
 
     %table.table
@@ -17,3 +19,22 @@
             %td= config.value
             %td= config.data_type
             %td= link_to 'Edit', edit_config_path(config)
+    %h3
+      Subscription Plans
+
+    %table.table
+      %thead
+        %tr
+          %th Name
+          %th.text-right Base Currency
+          %th.text-right Monthly Rate
+          %th.text-right Annual Rate
+          %th
+      %tbody
+        - @subscription_plans.each do |plan|
+          %tr
+            %td= plan.name
+            %td.text-right= plan.base_currency
+            %td.text-right= plan.monthly_rate
+            %td.text-right= plan.annual_rate
+            %td= link_to "Edit", edit_subscription_plan_path(plan)
